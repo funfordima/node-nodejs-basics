@@ -1,6 +1,7 @@
 import fs from 'fs';
 
 import { FILES } from '../constants/path-files.constants.js';
+import { getPath } from './utils/get-path.js';
 import { CustomValidationError } from '../errors/custom-validation-error.js';
 
 const callback = (err) => {
@@ -8,13 +9,13 @@ const callback = (err) => {
 };
 
 export const create = async () => {
-  const filePath = `./${FILES}/fresh.txt`;
+  const sourcePath = `${getPath(import.meta.url)}\\${FILES}\\fresh.txt`;
 
-  fs.stat(filePath, (err) => {
+  fs.stat(sourcePath, (err) => {
     if (err == null) {
       throw new CustomValidationError('FS operation failed');
     } else if (err.code === 'ENOENT') {
-      fs.writeFile(filePath, 'I am fresh and young', callback);
+      fs.writeFile(sourcePath, 'I am fresh and young', callback);
     } else {
       throw err;
     }
