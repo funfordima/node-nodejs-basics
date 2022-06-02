@@ -1,10 +1,10 @@
 import { existsSync } from 'fs';
 
 import { FILES, FILES_COPY } from '../constants/path-files.constants.js';
-import { copyFiles } from './utils/copy-files.utils.js';
+import { copyFiles } from './utils/copy-files.util.js';
 import { createDirectory } from './utils/create-directory.util.js';
 import { CustomValidationError } from '../errors/custom-validation-error.js';
-import { getPath } from './utils/get-path.js';
+import { getPath } from './utils/get-path.util.js';
 
 export const copy = async () => {
   const sourcePath = `${getPath(import.meta.url)}\\${FILES}`;

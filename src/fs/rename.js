@@ -1,7 +1,7 @@
 import { renameSync, existsSync } from 'fs';
 
 import { FILES } from '../constants/path-files.constants.js';
-import { getPath } from './utils/get-path.js';
+import { getPath } from './utils/get-path.util.js';
 import { CustomValidationError } from '../errors/custom-validation-error.js';
 
 export const rename = async () => {
