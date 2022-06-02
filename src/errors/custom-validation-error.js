@@ -1,4 +1,4 @@
-export default class CustomValidationError extends Error {
+export class CustomValidationError extends Error {
   constructor(message) {
     super(message)
     this.name = 'Validation Error'

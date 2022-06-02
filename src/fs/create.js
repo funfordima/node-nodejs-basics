@@ -1,23 +1,24 @@
 import fs from 'fs';
 
-import CustomValidationError from '../errors/custom-validation-error.js';
+import { FILES } from '../constants/path-files.constants.js';
+import { CustomValidationError } from '../errors/custom-validation-error.js';
+
+const callback = (err) => {
+  if (err) throw err;
+};
 
 export const create = async () => {
-    const filePath = './files/fresh.txt';
+  const filePath = `./${FILES}/fresh.txt`;
 
-    fs.stat(filePath, (err) => {
-        if (err == null) {
-            throw new CustomValidationError('FS operation failed');
-        } else if (err.code === 'ENOENT') {
-            fs.writeFile(filePath, 'I am fresh and young', (err) => {
-                if (err) throw err;
-
-                console.log('File is created successfully.');
-            });
-        } else {
-            console.log('Some other error: ', err.code);
-        }
-    });
+  fs.stat(filePath, (err) => {
+    if (err == null) {
+      throw new CustomValidationError('FS operation failed');
+    } else if (err.code === 'ENOENT') {
+      fs.writeFile(filePath, 'I am fresh and young', callback);
+    } else {
+      throw err;
+    }
+  });
 };
 
 create();
