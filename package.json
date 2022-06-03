@@ -4,7 +4,7 @@
   "description": "This repository is the part of nodejs-assignments https://github.com/AlreadyBored/nodejs-assignments",
   "type": "module",
   "scripts": {
-    "cli:env": "SET RSS_NAME=RSSchool-1& SET RSS_ADVICE='Do it quickly'& node src/cli/env.js",
+    "cli:env": "SET RSS_NAME=RSSchool-1& SET RSS_ADVICE='Do it quickly'& node src/cli/env.js"
   },
   "repository": {
     "type": "git",
