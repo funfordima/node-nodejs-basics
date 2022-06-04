@@ -4,7 +4,7 @@ import { release, version } from 'os';
 import { createServer as createServerHttp } from 'http';
 import { readFile } from 'fs/promises';
 
-import { getPath } from '../fs/utils/get-path.util.js';
+import { getPath } from '../utils/get-path.util.js';
 import * as file from './files/c.js';
 
 const random = Math.random();

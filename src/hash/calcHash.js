@@ -4,7 +4,7 @@ const {
 } = await import('crypto');
 
 import { FILES } from '../constants/path-files.constants.js';
-import { getPath } from '../fs/utils/get-path.util.js';
+import { getPath } from '../utils/get-path.util.js';
 
 export const calculateHash = async () => {
   const sourcePath = `${getPath(import.meta.url)}\\${FILES}\\fileToCalculateHashFor.txt`;
