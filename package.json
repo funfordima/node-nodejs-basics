@@ -4,7 +4,23 @@
   "description": "This repository is the part of nodejs-assignments https://github.com/AlreadyBored/nodejs-assignments",
   "type": "module",
   "scripts": {
-    "cli:env": "SET RSS_NAME=RSSchool-1& SET RSS_ADVICE='Do it quickly'& node src/cli/env.js"
+    "fs:create": "node src/fs/create.js",
+    "fs:copy": "node src/fs/copy.js",
+    "fs:rename": "node src/fs/rename.js",
+    "fs:delete": "node src/fs/delete.js",
+    "fs:list": "node src/fs/list.js",
+    "fs:read": "node src/fs/read.js",
+    "cli:env": "SET RSS_NAME=RSSchool-1& SET RSS_ADVICE='Do it quickly'& node src/cli/env.js",
+    "cli:args": "node src/cli/args.js --prop1 RSS --propN45 School --prop TheBest 45 55",
+    "modules": "node src/modules/cjsToEsm.mjs",
+    "hash": "node src/hash/calcHash.js",
+    "stream:read": "node src/streams/read.js",
+    "stream:write": "node src/streams/write.js",
+    "stream:transform": "node src/streams/transform.js",
+    "zip:compress": "node src/zip/compress.js",
+    "zip:decompress": "node src/zip/decompress.js",
+    "wt:main": "node src/wt/main.js",
+    "cp": "node src/cp/cp.js"
   },
   "repository": {
     "type": "git",

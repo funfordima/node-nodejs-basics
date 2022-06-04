@@ -13,7 +13,7 @@ export const calculateHash = async () => {
   hash.update(fileBuffer);
 
   const hex = `${hash.digest('hex')}`;
-
+  console.log(hex);
   return hex;
 };
 
