@@ -1,9 +1,9 @@
-import { mkdirSync } from 'fs';
+import { mkdir } from 'fs/promises';
 
-export const createDirectory = (target) => {
-  mkdirSync(target, (err) => {
-    if (err) {
-      throw err;
-    }
-  });
+export const createDirectory = async (target) => {
+  try {
+    await mkdir(target);
+  } catch (err) {
+    throw err;
+  }
 };

@@ -5,13 +5,14 @@ import { createServer as createServerHttp } from 'http';
 import { readFile } from 'fs/promises';
 
 import { getPath } from '../utils/get-path.util.js';
-import * as file from './files/c.js';
+import './files/c.js';
 
 const random = Math.random();
 
 let unknownObject;
 
 if (random > 0.5) {
+  // new syntax
   // unknownObject = await import('./files/a.json', { assert: { type: 'json' } });
   unknownObject = JSON.parse(
     await readFile(
@@ -19,6 +20,7 @@ if (random > 0.5) {
     )
   );
 } else {
+  // new syntax
   // unknownObject = await import('./files/b.json', { assert: { type: 'json' } });
   unknownObject = JSON.parse(
     await readFile(

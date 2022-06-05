@@ -1,3 +1,4 @@
+import path from 'path';
 import { existsSync, readdirSync } from 'fs';
 
 import { FILES } from '../constants/path-files.constants.js';
@@ -5,7 +6,7 @@ import { getPath } from '../utils/get-path.util.js';
 import { CustomValidationError } from '../errors/custom-validation-error.js';
 
 export const list = async () => {
-  const sourcePath = `${getPath(import.meta.url)}\\${FILES}`;
+  const sourcePath = path.resolve(getPath(import.meta.url), FILES);
 
   try {
     const isFilesExists = existsSync(sourcePath);

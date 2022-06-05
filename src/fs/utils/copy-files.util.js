@@ -1,13 +1,20 @@
-import {
-  writeFileSync,
-  readFileSync,
-  readdirSync,
-} from 'fs';
+import path from 'path';
+import { readdir, writeFile, readFile } from 'fs/promises';
 
-export const copyFiles = (source, target) => {
-  const files = readdirSync(`${source}`);
+export const copyFiles = async (source, target) => {
+  const files = await readdir(source);
 
   files.forEach((file) => {
-    writeFileSync(`${target}\\${file}`, readFileSync(`${source}\\${file}`, 'utf-8'), 'utf8');
+    const sourcePath = path.resolve(source, file);
+    const targetPath = path.resolve(target, file);
+
+    try {
+      (async () => {
+        const fileToRead = await readFile(sourcePath, { encoding: 'utf-8' });
+        await writeFile(targetPath, fileToRead);
+      })();
+    } catch (err) {
+      process.stderr.write(err);
+    }
   });
 };

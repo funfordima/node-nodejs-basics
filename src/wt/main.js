@@ -1,10 +1,12 @@
 import { cpus } from 'os';
+import path from 'path';
 import { Worker } from 'worker_threads';
 
 import { getPath } from '../utils/get-path.util.js';
 
 export const performCalculations = async () => {
-  const sourcePath = `${getPath(import.meta.url)}\\worker.js`;
+  const sourcePath = path.resolve(getPath(import.meta.url), 'worker.js');
+
   let workerList = [];
   const resultList = cpus().map((_, i) => {
     return new Promise((resolve, reject) => {

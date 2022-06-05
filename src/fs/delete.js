@@ -1,12 +1,13 @@
-import { existsSync, unlink } from 'fs';
+import path from 'path';
+import { existsSync } from 'fs';
+import { unlink } from 'fs/promises';
 
 import { FILES } from '../constants/path-files.constants.js';
 import { getPath } from '../utils/get-path.util.js';
-import { errorCallback } from './utils/error-callback.util.js';
 import { CustomValidationError } from '../errors/custom-validation-error.js';
 
 export const remove = async () => {
-  const sourcePath = `${getPath(import.meta.url)}/${FILES}/fileToRemove.txt`;
+  const sourcePath = path.resolve(getPath(import.meta.url), FILES, 'fileToRemove.txt');
 
   try {
     const isSourceFileExist = existsSync(sourcePath);
@@ -14,11 +15,10 @@ export const remove = async () => {
     if (!isSourceFileExist) {
       throw new CustomValidationError('FS operation failed');
     }
+    await unlink(sourcePath);
   } catch (err) {
     throw err;
   }
-
-  unlink(sourcePath, errorCallback);
 };
 
 remove();
